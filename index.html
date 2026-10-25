@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aloai — müştəri yazışmalarına AI cavab verir</title>
+  <meta name="description" content="WhatsApp, Instagram, Telegram və saytdan gələn müştəri mesajlarını bir yerə yığır, cavablandırır və satış komandanıza ötürür. Azərbaycan dilində." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Əsas məzmuna keç</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <a href="#top" class="logo">Aloai</a>
+        <nav class="nav__links" aria-label="Əsas menyu">
+          <a href="#platform">Platforma</a>
+          <a href="#how">Necə işləyir</a>
+          <a href="#sectors">Sahələr</a>
+          <a href="#pricing">Qiymət</a>
+        </nav>
+      </div>
+      <div class="nav__right">
+        <a href="/login" class="nav__login">Daxil ol</a>
+        <a href="/login" class="btn btn--lime btn--sm magnetic">Başla</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 01 HERO -->
+    <section class="hero" id="top">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <span class="eyebrow reveal-up">AI QƏBUL</span>
+          <h1 class="hero__title">
+            <span class="line"><span class="line__in">Hər söhbət</span></span>
+            <span class="line"><span class="line__in lime">cavablanır.</span></span>
+          </h1>
+          <p class="lead reveal-up">Müştəriləriniz WhatsApp, Instagram, Telegram və saytdan yazır. Aloai hamısını bir yerə yığır, oxuyur və cavab verir — siz yalnız vacib olanla məşğul olursunuz.</p>
+          <div class="btn-row reveal-up">
+            <a href="#demo" class="btn btn--lime magnetic">Aloai-ni işdə gör</a>
+            <a href="#platform" class="btn btn--ghost">Platformaya bax</a>
+          </div>
+          <span class="meta reveal-up">Qurulma 15 dəqiqə · Kart tələb olunmur</span>
+        </div>
+
+        <div class="feed card-dark tilt" aria-label="Canlı nümunə: gələn mesajlar">
+          <div class="feed__head">
+            <span class="live"><span class="live__dot"></span>Aloai canlı</span>
+            <span class="pill pill--lime">Cavabsız: <b class="feed__count">0</b></span>
+          </div>
+          <div class="feed__list" id="heroFeed"></div>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- 02 PROBLEM (pinned) -->
+    <section class="problem" id="problem">
+      <div class="problem__stage">
+        <span class="pill pill--red problem__counter"><span class="dot dot--red"></span>Cavabsız: <b id="problemCount">0</b></span>
+        <div class="problem__bubbles" id="problemBubbles" aria-hidden="true"></div>
+        <div class="problem__copy">
+          <span class="eyebrow">TANIŞ OLAN PROBLEM</span>
+          <h2 class="h2 h2--xl">Eyni suallar. Hər gün.<br />Beş yerdən.</h2>
+          <p class="lead">Gün ərzində onlarla mesaj gəlir və çoxu eynidir: qiymət, ünvan, iş saatı, boş vaxt. Hər birinə cavab yazmaq işin özünə vaxt qoymur.</p>
+        </div>
+        <div class="problem__turn">
+          <span class="problem__line"></span>
+          <span class="problem__turn-text">Sonra Aloai işə düşür.</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 KANALLAR -->
+    <section class="channels section" id="channels">
+      <div class="container">
+        <div class="split-head">
+          <div>
+            <span class="eyebrow reveal-up">KANALLAR</span>
+            <h2 class="h2 reveal-up">Beş kanal.<br />Bir gələn qutusu.</h2>
+          </div>
+          <p class="lead reveal-up">Müştəri harada rahatdırsa, orada yazır. Aloai hamısını eyni yerdə toplayır — kanal dəyişəndə söhbət itmir.</p>
+        </div>
+
+        <div class="channels__grid">
+          <ul class="channels__list">
+            <li class="ch-card"><span class="ch-name"><span class="dot" style="--c: var(--wa)"></span>WhatsApp</span><span class="ch-sub">Ən çox yazılan kanal</span></li>
+            <li class="ch-card"><span class="ch-name"><span class="dot" style="--c: var(--ig)"></span>Instagram</span><span class="ch-sub">DM və post şərhləri</span></li>
+            <li class="ch-card"><span class="ch-name"><span class="dot" style="--c: var(--tg)"></span>Telegram</span><span class="ch-sub">Bir dəqiqədə qoşulur</span></li>
+            <li class="ch-card"><span class="ch-name"><span class="dot" style="--c: var(--fg)"></span>Sayt chat</span><span class="ch-sub">Bir sətir kod</span></li>
+            <li class="ch-card ch-card--voice">
+              <div class="ch-row"><span class="ch-name"><span class="dot" style="--c: var(--lime)"></span>Səsli mesaj</span><span class="ch-sub lime">Mətnə çevrilir</span></div>
+              <div class="voice">
+                <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                <span class="voice__text" data-type="“Sabaha yer var?”"></span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="channels__flow" aria-hidden="true">
+            <svg viewBox="0 0 400 440" preserveAspectRatio="none" class="flow-svg">
+              <path class="flow-path" id="fp1" d="M0 44 C 180 44, 220 220, 400 220" stroke="var(--wa)" />
+              <path class="flow-path" id="fp2" d="M0 132 C 180 132, 220 220, 400 220" stroke="var(--ig)" />
+              <path class="flow-path" id="fp3" d="M0 220 L 400 220" stroke="var(--tg)" />
+              <path class="flow-path" id="fp4" d="M0 308 C 180 308, 220 220, 400 220" stroke="var(--fg)" />
+              <path class="flow-path" id="fp5" d="M0 400 C 180 400, 220 220, 400 220" stroke="var(--lime)" />
+              <circle class="flow-dot" r="5" fill="var(--wa)" />
+              <circle class="flow-dot" r="5" fill="var(--ig)" />
+              <circle class="flow-dot" r="5" fill="var(--tg)" />
+              <circle class="flow-dot" r="5" fill="var(--fg)" />
+              <circle class="flow-dot" r="5" fill="var(--lime)" />
+            </svg>
+            <div class="hub">Aloai</div>
+          </div>
+
+          <div class="inbox card-dark">
+            <div class="inbox__head"><b>Gələn qutusu</b><span>5 kanal · 1 siyahı</span></div>
+            <ul class="inbox__list">
+              <li><div class="inbox__top"><b><span class="dot" style="--c: var(--lime)"></span>Aysel M. · Səsli</b><span>indi</span></div><p>“Sabaha yer var?”</p></li>
+              <li><div class="inbox__top"><b><span class="dot" style="--c: var(--wa)"></span>Rəşad Q. · WhatsApp</b><span>1 dəq</span></div><p>Qiymət siyahısı göndərə bilərsiz?</p></li>
+              <li><div class="inbox__top"><b><span class="dot" style="--c: var(--ig)"></span>Günay T. · Instagram şərh</b><span>3 dəq</span></div><p>Bu rəng hələ var?</p></li>
+              <li><div class="inbox__top"><b><span class="dot" style="--c: var(--tg)"></span>Elvin S. · Telegram</b><span>5 dəq</span></div><p>İş saatlarınız nədir?</p></li>
+              <li><div class="inbox__top"><b><span class="dot" style="--c: var(--fg)"></span>Ziyarətçi · Sayt</b><span>8 dəq</span></div><p>Çatdırılma var?</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PLATFORMA (pinned) -->
+    <section class="platform" id="platform">
+      <div class="platform__stage container">
+        <div class="center-head">
+          <span class="eyebrow">PLATFORMA</span>
+          <h2 class="h2">Bir ekran. Bütün söhbət.</h2>
+          <p class="lead">Kanallar Aloai-də birləşir, amma işin idarəsi sizdədir — kim yazıb, AI nə deyib, kim gözləyir, nə qədər gəlir gəlib.</p>
+        </div>
+
+        <div class="steps-chips" role="list">
+          <span class="chip is-active" data-step="0" role="listitem"><b>1</b>Gələn qutusu</span>
+          <span class="chip" data-step="1" role="listitem"><b>2</b>AI co-pilot</span>
+          <span class="chip" data-step="2" role="listitem"><b>3</b>Lead-lər</span>
+          <span class="chip" data-step="3" role="listitem"><b>4</b>Analitika</span>
+        </div>
+        <p class="step-caption" id="stepCaption">Bütün kanal bir siyahıda — WhatsApp, Instagram, Telegram, sayt.</p>
+
+        <div class="app card-dark" data-active="0">
+          <aside class="app__list" data-zone="0">
+            <div class="app__title">Söhbətlər</div>
+            <div class="app__row is-sel"><b><span class="dot" style="--c: var(--wa)"></span>Aysel M.</b><span>Sabaha yer var?</span></div>
+            <div class="app__row"><b><span class="dot" style="--c: var(--ig)"></span>Rəşad Q.</b><span>Qiymət siyahısı?</span></div>
+            <div class="app__row"><b><span class="dot" style="--c: var(--tg)"></span>Elvin S.</b><span>İş saatlarınız nədir?</span></div>
+            <div class="app__row"><b><span class="dot" style="--c: var(--fg)"></span>Günay T.</b><span>Çox sağ olun!</span></div>
+          </aside>
+
+          <div class="app__thread" data-zone="1">
+            <div class="app__title app__title--row"><span>Aysel M. <em class="wa">· WhatsApp</em></span><small>AI aktiv</small></div>
+            <div class="thread">
+              <div class="msg msg--in">Salam, sabah saat 3-dən sonra yer var?</div>
+              <div class="msg msg--in">Qiymət də nə qədər olacaq?</div>
+              <div class="copilot">
+                <span class="copilot__label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8L20 10l-5 3.6L16.5 20 12 16.4 7.5 20 9 13.6 4 10l6.1-1.2z"/></svg>AI CO-PILOT TƏKLİFİ</span>
+                <p class="copilot__text" data-type="Salam, Aysel xanım! Sabah 15:30 və 17:00 boşdur. Konsultasiya 40 ₼-dır. Hansı saat sizə uyğundur?"></p>
+                <div class="copilot__actions">
+                  <button type="button" class="btn btn--lime btn--sm">Təsdiqlə və göndər</button>
+                  <button type="button" class="btn btn--ghost btn--sm">Redaktə et</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="app__side">
+            <div class="app__title">Lead</div>
+            <dl class="lead-card" data-zone="2">
+              <div><dt>Ad</dt><dd data-fill="Aysel M.">—</dd></div>
+              <div><dt>Telefon</dt><dd class="mono" data-fill="+994 50 ••• •• 12">—</dd></div>
+              <div><dt>Maraq</dt><dd data-fill="Konsultasiya">—</dd></div>
+              <div><dt>Status</dt><dd><span class="pill pill--amber lead-status">Maraqlı</span></dd></div>
+            </dl>
+            <div class="kpis" data-zone="3">
+              <div><b data-count="128">0</b><span>söhbət</span></div>
+              <div><b data-count="9">0</b><span>handoff</span></div>
+              <div><b data-count="4" data-suffix=" san">0</b><span>cavab</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 CANLI NÜMUNƏ (pinned) -->
+    <section class="demo" id="demo">
+      <div class="demo__stage container">
+        <div class="phone card-dark">
+          <div class="phone__head">
+            <span class="avatar">DK</span>
+            <div><b>Dermatologiya klinikası</b><small class="wa">WhatsApp · Aloai cavab verir</small></div>
+          </div>
+          <div class="phone__body" id="demoChat">
+            <div class="msg msg--out msg--voice" data-src="0">
+              <div class="voice-msg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                <span class="wave wave--lime" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <small>0:07</small>
+              </div>
+              <em class="transcript">“Salam, sabah dermatoloqa yer var?”</em>
+            </div>
+            <div class="msg msg--in msg--ai" data-src="0">Salam! Sabah saat 14:30 və 16:00 boşdur. Hansı sizə uyğundur?</div>
+            <div class="msg msg--out msg--img" data-src="1">
+              <div class="img-ph">Şəkil: kampaniya postu</div>
+              <span>Bu endirim hələ qüvvədədir?</span>
+            </div>
+            <div class="msg msg--in msg--ai" data-src="1">Bəli, bu kampaniya qüvvədədir — ilk müayinəyə [endirim şərti]. 14:30-a yazım?</div>
+            <div class="msg msg--out" data-src="2" lang="ru">Можно лучше на субботу?</div>
+            <div class="msg msg--in msg--ai" data-src="2" lang="ru">Конечно! В субботу свободно 11:00. Записать вас?</div>
+          </div>
+        </div>
+
+        <div class="demo__copy">
+          <span class="eyebrow">CANLI NÜMUNƏ</span>
+          <h2 class="h2">Belə cavab verir.</h2>
+          <p class="lead">Aloai sizin qiymətlərinizi, xidmətlərinizi və iş saatlarınızı bilir. Cavablar oradan gəlir — uydurulmur.</p>
+          <span class="mini-label">HƏR CAVABIN MƏNBƏYİ</span>
+          <div class="sources">
+            <div class="source" data-src="0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 19v3"/></svg>
+              <div><b>Səsli mesaj → mətn → cavab</b><span>Mənbə: <i>Həkim cədvəli · sabah 14:30, 16:00</i></span></div>
+            </div>
+            <div class="source" data-src="1">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+              <div><b>Şəkli başa düşür</b><span>Mənbə: <i>Kampaniyalar · aktiv endirim</i></span></div>
+            </div>
+            <div class="source" data-src="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+              <div><b>Müştərinin dilində</b><span>Rus dili avtomatik tanındı · <i>şənbə 11:00</i></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 NECƏ İŞLƏYİR -->
+    <section class="how section" id="how">
+      <div class="container">
+        <div class="split-head">
+          <div>
+            <span class="eyebrow reveal-up">NECƏ İŞLƏYİR</span>
+            <h2 class="h2 reveal-up">Dörd addım. Bir dəfə.</h2>
+          </div>
+          <div class="setup reveal-up">
+            <div class="setup__row"><span>Qurulma</span><b class="lime"><span id="setupMin">0</span> / 15 dəqiqə</b></div>
+            <div class="bar"><span id="setupBar"></span></div>
+          </div>
+        </div>
+
+        <div class="how__grid">
+          <article class="how-card">
+            <span class="how-card__num">01</span>
+            <div class="how-card__vis">
+              <div class="toggle-row"><span><span class="dot" style="--c: var(--wa)"></span>WhatsApp</span><span class="switch"></span></div>
+              <div class="toggle-row"><span><span class="dot" style="--c: var(--ig)"></span>Instagram</span><span class="switch"></span></div>
+              <div class="toggle-row"><span><span class="dot" style="--c: var(--tg)"></span>Telegram</span><span class="switch"></span></div>
+            </div>
+            <h3>Kanalları qoş</h3>
+            <p>WhatsApp, Instagram, Telegram və ya sayt. Telegram bir dəqiqə çəkir.</p>
+          </article>
+          <article class="how-card">
+            <span class="how-card__num">02</span>
+            <div class="how-card__vis">
+              <div class="file-row"><span>qiymətlər.pdf</span><small class="learned">Öyrənildi</small></div>
+              <div class="file-row"><span>İş saatları</span><small class="learned">Öyrənildi</small></div>
+              <div class="file-row file-row--col"><div class="file-row__top"><span>FAQ · 24 sual</span><small class="file-pct">0%</small></div><div class="bar bar--thin"><span class="file-bar"></span></div></div>
+            </div>
+            <h3>Biznesini danış</h3>
+            <p>Qiymətlər, xidmətlər, iş saatları, tez-tez verilən suallar. Aloai bunları öyrənir.</p>
+          </article>
+          <article class="how-card">
+            <span class="how-card__num">03</span>
+            <div class="how-card__vis how-card__vis--chat">
+              <div class="msg msg--out msg--sm">Ünvanınız haradır?</div>
+              <div class="msg msg--in msg--ai msg--sm">Nizami küç. 12. Xəritə linkini göndərirəm.</div>
+              <small class="lime ai-done">AI cavabladı</small>
+            </div>
+            <h3>Cavab verməyə başlayır</h3>
+            <p>Müştəri yazır — Aloai oxuyur, anlayır və sizin məlumatınızla cavab verir.</p>
+          </article>
+          <article class="how-card">
+            <span class="how-card__num">04</span>
+            <div class="how-card__vis">
+              <div class="notify">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
+                <div><b>Söhbət sizə ötürüldü</b><span>Rəşad Q. böyük sifariş barədə soruşur</span></div>
+              </div>
+            </div>
+            <h3>Lazım olanda sizi çağırır</h3>
+            <p>Qeyri-adi sual, şikayət və ya satış anı — söhbət komandanıza ötürülür.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 HANDOFF (pinned) -->
+    <section class="handoff" id="handoff">
+      <div class="handoff__stage container">
+        <div class="handoff__copy">
+          <span class="eyebrow">İNSAN LAZIM OLANDA</span>
+          <h2 class="h2">Təkrarı AI götürür.<br />Vacibi siz.</h2>
+          <p class="lead">Aloai nə vaxt dayanacağını bilir. Şikayət, mübahisəli hal və ya böyük satış — söhbət dərhal insana keçir və AI susur.</p>
+          <ol class="ho-steps">
+            <li class="ho-step" data-s="0"><span class="ho-step__icon ho-step__icon--ai"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>AI cavab verir</b><span>Adi suallar, 7/24</span></div></li>
+            <li class="ho-step" data-s="1"><span class="ho-step__icon ho-step__icon--warn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><div><b>Siqnal</b><span>AI şikayəti, mübahisəni və ya böyük satışı tanıyır</span></div></li>
+            <li class="ho-step" data-s="2"><span class="ho-step__icon ho-step__icon--human">NH</span><div><b>Menecer</b><span>Bildiriş alır, söhbəti götürür — AI susur</span></div></li>
+          </ol>
+        </div>
+
+        <div class="ho-chat card-dark">
+          <div class="app__title app__title--row"><span>Aysel M. <em class="wa">· WhatsApp</em></span><span class="pill pill--light ho-owner">AI aktiv</span></div>
+          <div class="ho-chat__body">
+            <div class="msg msg--out" data-h="0">İş saatlarınız necədir?</div>
+            <div class="msg msg--in msg--ai ho-ai" data-h="0">Hər gün 09:00–20:00 açığıq. <small class="lime">AI</small></div>
+            <div class="msg msg--out ho-complaint" data-h="1">Dünən gəldim, 1 saat gözlədim. Çox narazıyam.</div>
+            <div class="ho-signal" data-h="1"><span></span><b>ŞİKAYƏT AŞKARLANDI · MENECERƏ ÖTÜRÜLDÜ</b><span></span></div>
+            <div class="ho-muted" data-h="2"><span class="dot" style="--c: var(--subtle)"></span>AI susdu</div>
+            <div class="msg msg--human" data-h="2"><small>Nigar · menecer</small>Aysel xanım, üzr istəyirik. Mən şəxsən məşğul oluram — sizə növbəti qəbulu növbəsiz təklif edə bilərəm.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 SAHƏLƏR -->
+    <section class="sectors section" id="sectors">
+      <div class="container">
+        <div class="split-head">
+          <div>
+            <span class="eyebrow reveal-up">SAHƏLƏR</span>
+            <h2 class="h2 reveal-up">Eyni sistem.<br />Sizin sözlərinizlə.</h2>
+          </div>
+          <p class="lead reveal-up">Sahələr özü dəyişir — klikləmədən hamısını görürsünüz. Hər söhbət bir nəticə ilə bitir.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Sahələr" id="sectorTabs"></div>
+
+        <div class="sectors__grid">
+          <div class="sector-chat card-dark" id="sectorChat" role="tabpanel" aria-live="polite"></div>
+          <div class="sector-side">
+            <span class="mini-label">HƏR SAHƏDƏ NƏTİCƏ</span>
+            <div id="sectorOutcomes" class="outcomes"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 ETİBAR -->
+    <section class="trust section section--tight">
+      <div class="container">
+        <h2 class="h2 h2--md center reveal-up">Biznesiniz üçün qurulub. <span class="muted">Sizin dilinizdə.</span></h2>
+        <div class="trust__grid">
+          <div class="trust-card"><b class="trust-num">AZ</b><span class="trust-title">Azərbaycan dilində</span><p>Müştəri ilə onun dilində danışır.</p></div>
+          <div class="trust-card"><b class="trust-num" data-count="0">0</b><span class="trust-title">Uydurma cavab</span><p>Cavablar yalnız sizin məlumatınızdan gəlir.</p></div>
+          <div class="trust-card"><b class="trust-num">7/24</b><span class="trust-title">Gecə də, bayramda da</span><p>Heç bir mesaj səhərə qalmır.</p></div>
+          <div class="trust-card"><b class="trust-num"><span data-count="15">0</span> dəq</b><span class="trust-title">Qurulma</span><p>Kart tələb olunmur, 14 gün pulsuz.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 QİYMƏT -->
+    <section class="pricing section" id="pricing">
+      <div class="container container--narrow">
+        <div class="center-head">
+          <span class="eyebrow reveal-up">QİYMƏTLƏR</span>
+          <h2 class="h2 reveal-up">Nə qədər danışdığınıza görə.</h2>
+          <span class="pill pill--lime pill--lg reveal-up">Hər paketdə 14 gün pulsuz · Kart tələb olunmur</span>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <header><h3>Başlanğıc</h3><p>Kiçik biznes, ilk addım</p></header>
+            <div class="plan__price"><b>39 ₼</b><span>/ay</span></div>
+            <dl class="plan__rows"><div><dt>Mesaj</dt><dd>1 000</dd></div><div><dt>Səsli mesaj</dt><dd>60</dd></div><div><dt>Şəkil</dt><dd>100</dd></div><div><dt>İstifadəçi</dt><dd>2</dd></div></dl>
+            <a href="/signup" class="btn btn--ghost btn--block">Pulsuz başla</a>
+          </article>
+          <article class="plan plan--featured">
+            <span class="plan__badge">Ən populyar</span>
+            <header><h3>Biznes</h3><p>Komanda ilə işləyən bizneslər</p></header>
+            <div class="plan__price"><b>119 ₼</b><span>/ay</span></div>
+            <dl class="plan__rows"><div><dt>Mesaj</dt><dd>5 000</dd></div><div><dt>Səsli mesaj</dt><dd>250</dd></div><div><dt>Şəkil</dt><dd>500</dd></div><div><dt>İstifadəçi</dt><dd>5</dd></div></dl>
+            <a href="/signup" class="btn btn--lime btn--block magnetic">Pulsuz başla</a>
+          </article>
+          <article class="plan">
+            <header><h3>Pro</h3><p>Böyük həcm, satış avtomatlaşdırması</p></header>
+            <div class="plan__price"><b>249 ₼</b><span>/ay</span></div>
+            <dl class="plan__rows"><div><dt>Mesaj</dt><dd>15 000</dd></div><div><dt>Səsli mesaj</dt><dd>600</dd></div><div><dt>Şəkil</dt><dd>1 500</dd></div><div><dt>İstifadəçi</dt><dd>15</dd></div></dl>
+            <a href="/signup" class="btn btn--ghost btn--block">Pulsuz başla</a>
+          </article>
+        </div>
+        <div class="corp">
+          <div><h3>Korporativ</h3><p>Limitsiz mesaj, səsli mesaj, şəkil və istifadəçi · fərdi şərtlər</p></div>
+          <a href="/login" class="btn btn--light">Bizimlə əlaqə</a>
+        </div>
+        <p class="footnote">Bütün paketlərdə hər şəbəkədən 1 hesab qoşulur. Limiti aşsanız — əvvəlcədən bildiyiniz tariflə, gizli xərc yoxdur.</p>
+      </div>
+    </section>
+
+    <!-- 11 FAQ -->
+    <section class="faq section">
+      <div class="container faq__grid">
+        <div>
+          <span class="eyebrow reveal-up">SUALLAR</span>
+          <h2 class="h2 reveal-up">Soruşmadan cavab.</h2>
+          <p class="lead reveal-up">Ən çox verilən suallar — klikləmədən, hamısı açıq.</p>
+        </div>
+        <div class="faq__list">
+          <div class="faq-item"><h3>Hansı dillərdə cavab verir?</h3><p>Müştəri hansı dildə yazırsa, o dildə: [Azərbaycan, rus, ingilis — təsdiqlə].</p></div>
+          <div class="faq-item"><h3>Bilmədiyi sual gəlsə nə olur?</h3><p>Uydurmur. Cavab sizin məlumatınızda yoxdursa, söhbət komandanıza ötürülür.</p></div>
+          <div class="faq-item"><h3>Səsli mesaja necə cavab verir?</h3><p>Səsli mesajı mətnə çevirir, anlayır və [yazı ilə — təsdiqlə] cavab verir.</p></div>
+          <div class="faq-item"><h3>Qurmaq nə qədər çəkir?</h3><p>Təxminən 15 dəqiqə. Telegram bir dəqiqədə qoşulur, sayt chat bir sətir kodla.</p></div>
+          <div class="faq-item"><h3>Məlumatlarım təhlükəsizdir?</h3><p>[Məlumatların saxlanması və təhlükəsizliyi haqqında — təsdiqlə]</p></div>
+          <div class="faq-item"><h3>Limiti aşsam nə olur?</h3><p>Xidmət dayanmır. Artıq istifadə əvvəlcədən bildiyiniz tariflə hesablanır.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 CTA -->
+    <section class="cta">
+      <div class="container cta__inner">
+        <div class="cta__chat">
+          <div class="msg msg--out cta-q">Sabah boş vaxtınız var?</div>
+          <div class="msg msg--in msg--ai cta-a">Bəli! Sabah 14:30 və 16:00 boşdur.</div>
+          <span class="pill pill--lime cta-count">Cavabsız: <b>1</b></span>
+        </div>
+        <h2 class="cta__title">Müştəriniz <span class="lime">gözləməsin.</span></h2>
+        <p class="lead">Bu gün qoşun, bu gün cavab verməyə başlasın.</p>
+        <div class="btn-row btn-row--center">
+          <a href="/login" class="btn btn--lime btn--lg magnetic">Söhbətə başla</a>
+          <a href="#how" class="btn btn--ghost btn--lg">Necə işlədiyini gör</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand"><span class="logo">Aloai</span><p>Bizneslər üçün AI qəbul və müştəri kommunikasiyası.</p><small>© 2026 Aloai. Bütün hüquqlar qorunur.</small></div>
+      <div class="footer__cols">
+        <div><span class="mini-label">MƏHSUL</span><a href="#platform">Platforma</a><a href="#how">Necə işləyir</a><a href="#sectors">Sahələr</a></div>
+        <div><span class="mini-label">ŞİRKƏT</span><a href="/privacy">Gizlilik</a><a href="/terms">Şərtlər</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
